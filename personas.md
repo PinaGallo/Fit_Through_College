@@ -1,6 +1,7 @@
 ## Persona
 
 This is my persona:
+(Da wir diese App primär für uns erstellen, haben wir uns selber als Personas genommen. In einem zweiten Schritt werden wir natürlich noch eine aussenstehende Person zuziehen, die unsere App testen kann.)
 
 Nadine:
 
@@ -28,3 +29,8 @@ Das sind meine Ziele: Ausgleich zum kopflastigen Alltag durch Sport erreichen
 Allgemeine Zielgruppe unserer App:
 
 Zwischen 20 und 40 Jahren, Freude an Bewegung, möchten für ihr Programm im Gym etwas mehr Unterstützung/Ideen und Motivation erhalten. Soll möglichst mit dem Studiumsalltag vereinbar sein, daher nicht zu viel Zeit in Anspruch nehmen.
+
+
+Allgemeine Zielgruppe unserer App:
+
+Zwischen 20 und 40 Jahren, Freude an Bewegung, möchten für ihr Programm im Gym etwas mehr Unterstützung/Ideen und Motivation erhalten. Soll möglichst mit dem einem vollen Alltag vereinbar sein, daher nicht zu viel Zeit in Anspruch nehmen.
