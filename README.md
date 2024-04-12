@@ -1,5 +1,3 @@
 # Fit_durchs_Studium
 
-Unsere App begleitet Dich durch Dein Studium, indem sie Dir jeden Tag zufällig einen kurze Auswahl an Fitnessübungen vorschlägt. Eine Einheit sollte dabei nicht länger als 10min sein, damit sie auch in den vollsten Unitag passt. 
-Du kannst Dein Fitnesslevel auswählen und siehst am Ende einer Woche jeweils eine kleine Statistik und Deine Fortschritte über die Woche.
-Die Übungen sind aufgeteilt in Muskelgruppen und das Ziel ist es, jede Woche möglichst effektiv Deinen ganzen Körper zu trainieren.
+Unsere App begleitet Dich durch Dein Studium, indem sie Dir pro Woche, angepasst auf Dein Fitnessniveau, einen Fitnessplan mit zufälligen Übungen zusammenstellt, damit Du im Gym nicht mehr ratlos dastehst. Dabei kannst Du auswählen, welche Muskelgruppen Du in der jeweiligen Woche trainieren möchtest. Die Einheiten sind kurz gehalten, damit Sie auch in den vollsten Unitag passen. In der Wochenübersicht kannst Du Deine Fortschritte verfolgen und Ende Woche Deine Wochenzusammenfassung anschauen. 
