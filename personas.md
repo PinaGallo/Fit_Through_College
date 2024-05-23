@@ -31,6 +31,14 @@ Allgemeine Zielgruppe unserer App:
 Zwischen 20 und 40 Jahren, Freude an Bewegung, möchten für ihr Programm im Gym etwas mehr Unterstützung/Ideen und Motivation erhalten. Soll möglichst mit dem Studiumsalltag vereinbar sein, daher nicht zu viel Zeit in Anspruch nehmen.
 
 
-Allgemeine Zielgruppe unserer App:
+Aussendstehender Nutzer/ Persona 2:
 
-Zwischen 20 und 40 Jahren, Freude an Bewegung, möchten für ihr Programm im Gym etwas mehr Unterstützung/Ideen und Motivation erhalten. Soll möglichst mit dem einem vollen Alltag vereinbar sein, daher nicht zu viel Zeit in Anspruch nehmen.
+Ralf
+
+Beschreibung der Person: männlich, 28 Jahre, braune Haare, braune Augen, 1.87
+Mein nächster Urlaub: Juli 2024, USA Westcoast
+Meine Lieblings- Apps: Instagram, SRF Sport
+Das ist ein Tick von mir: Ich bin sehr geldbewusst
+Das ist mein Problem: "Ich habe keine Probleme"
+Ein typischer Tag: Auto zur Arbeit, Unterrichten, Training, Tagesschau
+Das sind meine Ziele: Ein Eigenheim und zurück in mein Heimatdorf
