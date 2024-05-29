@@ -53,7 +53,7 @@ def init_dataframe():
 
 
 def create_training_plan(filtered_df, selected_days, start_date):
-    """Create a training plan with 5 random exercises for each selected day."""
+    """Create a training plan with 5 random exercises for each selected day and save it to GitHub."""
     training_plan = pd.DataFrame(columns=USER_PLAN_COLUMNS)
     for day in selected_days:
         day_exercises = filtered_df.sample(n=5)
@@ -86,7 +86,13 @@ def create_training_plan(filtered_df, selected_days, start_date):
 
             st.markdown(f"<p style='font-size:16px;'><strong>Instructions:</strong> {exercise['instructions']}</p>", unsafe_allow_html=True)            
             st.write("")
-            
+    
+    # Save the training plan to the user's plan DataFrame
+    st.session_state.df_user_plans = pd.concat([st.session_state.df_user_plans, training_plan], ignore_index=True)
+    
+    # Save the updated user plans to GitHub
+    st.session_state.github.write_df(DATA_FILE_USER_PLANS, st.session_state.df_user_plans, "Updated user training plans")
+    
     return training_plan
 
 def save_training_plan_to_logs(user_training_plan):
