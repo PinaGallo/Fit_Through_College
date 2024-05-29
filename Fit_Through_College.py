@@ -4,6 +4,7 @@ import pandas as pd
 from functions.github_contents import GithubContents
 import bcrypt
 from datetime import timedelta
+import datetime
 
 # Set constants
 DATA_FILE_LOGIN = "MyLoginTable.csv"
@@ -124,6 +125,9 @@ def current_training_plan():
     if not user_plans.empty:
         # Find the start date
         start_date = user_plans.iloc[0]['date']
+        # Convert to datetime if necessary
+        if not isinstance(start_date, datetime.datetime):
+            start_date = pd.to_datetime(start_date)
         # Find the end date of the training plan (start date + 6 days)
         end_date = start_date + timedelta(days=6)
         st.markdown(f"<h5 style='color: #ff5733'> {start_date.strftime('%d.%m.%Y')} - {end_date.strftime('%d.%m.%Y')}</h5>", unsafe_allow_html=True)
@@ -144,6 +148,7 @@ def current_training_plan():
             complete_training_plan()
     else:
         st.write("No current training plans available.")
+
     
 def complete_training_plan():
     """Move the current training plan to the completed plans and clear it from the active plans."""
