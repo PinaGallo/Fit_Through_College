@@ -1,7 +1,7 @@
 import binascii
 import streamlit as st
 import pandas as pd
-from github_contents import GithubContents
+from functions.github_contents import GithubContents
 import bcrypt
 from datetime import timedelta
 
