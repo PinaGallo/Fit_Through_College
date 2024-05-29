@@ -272,10 +272,6 @@ def main_fitness():
     if 'completed_training_plan_subtabs' not in st.session_state:
         st.session_state['completed_training_plan_subtabs'] = []
 
-    # Initialize GitHub and credentials
-    init_github()
-    init_credentials()
-
     # Check authentication status
     if not st.session_state['authentication']:
         login_page()
