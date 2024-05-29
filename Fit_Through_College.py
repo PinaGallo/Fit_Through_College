@@ -159,6 +159,9 @@ def complete_training_plan():
     user_plans = user_plans[user_plans['username'] == username]
     st.dataframe(user_plans)
     if not user_plans.empty:
+        # Convert 'date' column to datetime
+        user_plans['date'] = pd.to_datetime(user_plans['date'])
+
         # Append the user's current plan to the completed plans
         st.session_state.df_completed_plans = pd.concat([st.session_state.df_completed_plans, user_plans], ignore_index=True)
         
@@ -177,6 +180,7 @@ def complete_training_plan():
         st.success("Training plan completed and moved to the Completed Training Plans tab.")
     else:
         st.warning("No current training plans available.")
+
 
 def create_completed_training_plan_subtab(user_plans):
     """Create a subtab for the completed training plan."""
