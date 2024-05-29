@@ -146,7 +146,7 @@ def complete_training_plan():
     
     # Filter out the plans for the current user
     user_plans = user_plans[user_plans['username'] == username]
-    
+    st.dataframe(user_plans)
     if not user_plans.empty:
         # Append the user's current plan to the completed plans
         st.session_state.df_completed_plans = pd.concat([st.session_state.df_completed_plans, user_plans], ignore_index=True)
