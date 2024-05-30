@@ -50,17 +50,7 @@ def init_dataframe():
         if st.session_state.github.file_exists(DATA_FILE_TRAINING_LOGS):
             st.session_state.df_training_logs = st.session_state.github.read_df(DATA_FILE_TRAINING_LOGS)
         else:
-            st.session_state.df_training_logs = pd.DataFrame(columns=TRAINING_LOG_COLUMNS)
-
-    if 'completed_training_plan_subtabs' not in st.session_state:
-        st.session_state.completed_training_plan_subtabs = []
-
-        # Create subtabs for all existing completed plans
-        completed_plans = st.session_state.df_completed_plans
-        for _, row in completed_plans.iterrows():
-            user_plans = completed_plans[completed_plans['username'] == row['username']]
-            if not user_plans.empty:
-                create_completed_training_plan_subtab(user_plans)
+            st.session_state.df_training_logs = pd.DataFrame(columns=['username', 'start_date', 'end_date', 'training_plan'])
 
 import pandas as pd
 from datetime import timedelta
@@ -475,11 +465,9 @@ def main():
             login_page()
         elif options == "Register":
             register_page()
-    else:
-        init_dataframe() # Initialize dataframes after authentication
-        main_fitness()
 
+    else:
+        main_fitness()
 
 if __name__ == "__main__":
     main()
-
