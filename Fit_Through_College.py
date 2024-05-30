@@ -163,7 +163,7 @@ def complete_training_plan():
     
     # Filter out the plans for the current user
     user_plans = user_plans[user_plans['username'] == username]
-    #st.dataframe(user_plans)
+    
     if not user_plans.empty:
         # Convert 'date' column to datetime
         user_plans['date'] = pd.to_datetime(user_plans['date'])
@@ -184,8 +184,12 @@ def complete_training_plan():
         create_completed_training_plan_subtab(user_plans)
         
         st.success("Training plan completed and moved to the Completed Training Plans tab.")
+
+        # Rerun the Streamlit script to reflect changes immediately
+        st.experimental_rerun()
     else:
         st.warning("No current training plans available.")
+
 
 
 def create_completed_training_plan_subtab(user_plans):
