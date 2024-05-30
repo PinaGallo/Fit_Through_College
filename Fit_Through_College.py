@@ -364,6 +364,7 @@ def main_fitness():
         if st.sidebar.button("Logout", key="logout_button", help="Click here to logout"):
             st.session_state['authentication'] = False
             st.session_state['username'] = ""
+            st.experimental_rerun()
 
 def login_page():
     """ Login an existing user. """
