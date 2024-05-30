@@ -52,10 +52,13 @@ def init_dataframe():
         else:
             st.session_state.df_training_logs = pd.DataFrame(columns=['username', 'start_date', 'end_date', 'training_plan'])
 
+import pandas as pd
+from datetime import timedelta
 
 def create_training_plan(filtered_df, selected_days, start_date):
     """Create a training plan with 5 random exercises for each selected day and save it to GitHub."""
     training_plan = pd.DataFrame(columns=USER_PLAN_COLUMNS)
+    
     for day in selected_days:
         day_exercises = filtered_df.sample(n=5)
         day_plan = pd.DataFrame({
@@ -70,24 +73,26 @@ def create_training_plan(filtered_df, selected_days, start_date):
         training_plan = pd.concat([training_plan, day_plan], ignore_index=True)
         start_date += timedelta(days=1)
 
+    # Display the training plan
     st.markdown(f"<h2 style='color: #ff5733;'><b>Training Plan</b></h2>", unsafe_allow_html=True)
 
-    for day, exercises in training_plan.groupby('day'):
-        st.markdown(f"<h3>{day}</h3>", unsafe_allow_html=True)
-        for _, exercise in exercises.iterrows():
-            st.markdown(f"<p style='font-size:16px;'><strong>Exercise:</strong> <em>{exercise['exercise_name']}</em></p>", unsafe_allow_html=True)
-            st.markdown(f"<p style='font-size:16px;'><strong>Level:</strong> {exercise['level']}</p>", unsafe_allow_html=True)
-            st.markdown(f"<p style='font-size:16px;'><strong>Muscles:</strong> {exercise['primaryMuscles']}</p>", unsafe_allow_html=True)
+    # for day in selected_days:
+    #     st.markdown(f"<h3>{day}</h3>", unsafe_allow_html=True)
+    #     day_exercises = training_plan[training_plan['day'] == day]
+    #     for _, exercise in day_exercises.iterrows():
+    #         st.markdown(f"<p style='font-size:16px;'><strong>Exercise:</strong> <em>{exercise['exercise_name']}</em></p>", unsafe_allow_html=True)
+    #         st.markdown(f"<p style='font-size:16px;'><strong>Level:</strong> {exercise['level']}</p>", unsafe_allow_html=True)
+    #         st.markdown(f"<p style='font-size:16px;'><strong>Muscles:</strong> {exercise['primaryMuscles']}</p>", unsafe_allow_html=True)
 
-            muscles = exercise['primaryMuscles'].split(',')
-            for muscle in muscles:
-                muscle = muscle.strip()
-                if muscle in muscle_images:
-                    st.image(muscle_images[muscle], width=100)
+    #         muscles = exercise['primaryMuscles'].split(',')
+    #         for muscle in muscles:
+    #             muscle = muscle.strip()
+    #             if muscle in muscle_images:
+    #                 st.image(muscle_images[muscle], width=100)
 
-            st.markdown(f"<p style='font-size:16px;'><strong>Instructions:</strong> {exercise['instructions']}</p>", unsafe_allow_html=True)            
-            st.write("")
-    
+    #         st.markdown(f"<p style='font-size:16px;'><strong>Instructions:</strong> {exercise['instructions']}</p>", unsafe_allow_html=True)            
+    #         st.write("")
+
     # Save the training plan to the user's plan DataFrame
     st.session_state.df_user_plans = pd.concat([st.session_state.df_user_plans, training_plan], ignore_index=True)
     
@@ -95,6 +100,7 @@ def create_training_plan(filtered_df, selected_days, start_date):
     st.session_state.github.write_df(DATA_FILE_USER_PLANS, st.session_state.df_user_plans, "Updated user training plans")
     
     return training_plan
+
 
 def save_training_plan_to_logs(user_training_plan):
     """
@@ -157,7 +163,7 @@ def complete_training_plan():
     
     # Filter out the plans for the current user
     user_plans = user_plans[user_plans['username'] == username]
-    st.dataframe(user_plans)
+    #st.dataframe(user_plans)
     if not user_plans.empty:
         # Convert 'date' column to datetime
         user_plans['date'] = pd.to_datetime(user_plans['date'])
