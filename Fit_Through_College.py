@@ -74,7 +74,7 @@ def create_training_plan(filtered_df, selected_days, start_date):
         start_date += timedelta(days=1)
 
     # Display the training plan
-    st.markdown(f"<h2 style='color: #ff5733;'><b>Training Plan</b></h2>", unsafe_allow_html=True)
+    #st.markdown(f"<h2 style='color: #ff5733;'><b>Training Plan</b></h2>", unsafe_allow_html=True)
 
     # for day in selected_days:
     #     st.markdown(f"<h3>{day}</h3>", unsafe_allow_html=True)
