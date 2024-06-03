@@ -72,19 +72,13 @@ def create_training_plan(filtered_df, selected_days, start_date):
         training_plan = pd.concat([training_plan, day_plan], ignore_index=True)
         start_date += timedelta(days=1)
 
-    # Save the training plan to the user's plan DataFrame
+    # Save the training plan to the user's plan DataFram and the updated user plans to Github
     st.session_state.df_user_plans = pd.concat([st.session_state.df_user_plans, training_plan], ignore_index=True)
-    
-    # Save the updated user plans to GitHub
-    st.session_state.github.write_df(DATA_FILE_USER_PLANS, st.session_state.df_user_plans, "Updated user training plans")
-    
+    st.session_state.github.write_df(DATA_FILE_USER_PLANS, st.session_state.df_user_plans, "Updated user training plans")    
     return training_plan
 
-
 def save_training_plan_to_logs(user_training_plan):
-    """
-    Saves the entire training plan for the selected period in the Training Logs tab.
-    """
+    """Saves the entire training plan for the selected period in the Training Logs tab."""
     start_date = user_training_plan['date'].min()
     end_date = user_training_plan['date'].max()
     
@@ -96,10 +90,8 @@ def save_training_plan_to_logs(user_training_plan):
         'training_plan': user_training_plan.to_dict(orient='records')
     }
     
-    # Add the entry to the training logs
+    # Add the entry to the training logs and save the updated trainig logs to Github
     st.session_state.df_training_logs = st.session_state.df_training_logs.append(training_logs_entry, ignore_index=True)
-    
-    # Save the updated training logs to GitHub
     st.session_state.github.write_df(DATA_FILE_TRAINING_LOGS, st.session_state.df_training_logs, "Updated training logs")
 
 def current_training_plan():
@@ -108,13 +100,10 @@ def current_training_plan():
     user_plans = user_plans[user_plans['username'] == st.session_state['username']]
 
     if not user_plans.empty:
-        # Find the start date
         start_date = user_plans.iloc[0]['date']
-        # Convert to datetime if necessary
         if not isinstance(start_date, datetime.datetime):
             start_date = pd.to_datetime(start_date)
-        # Find the end date of the training plan (start date + 6 days)
-        end_date = start_date + timedelta(days=6)
+        end_date = start_date + timedelta(days=6) # Find the end date of the training plan (start date + 6 days)
         st.markdown(f"<h5 style='color: #ff5733'> {start_date.strftime('%d.%m.%Y')} - {end_date.strftime('%d.%m.%Y')}</h5>", unsafe_allow_html=True)
         
         for _, row in user_plans.iterrows():
@@ -144,27 +133,20 @@ def complete_training_plan():
     user_plans = user_plans[user_plans['username'] == username]
     
     if not user_plans.empty:
-        # Convert 'date' column to datetime
         user_plans['date'] = pd.to_datetime(user_plans['date'])
 
-        # Append the user's current plan to the completed plans
+        # Append the user's current plan to the completed plans and save the completed plans to Github
         st.session_state.df_completed_plans = pd.concat([st.session_state.df_completed_plans, user_plans], ignore_index=True)
-        
-        # Save the completed plans to GitHub
         st.session_state.github.write_df(DATA_FILE_COMPLETED_PLANS, st.session_state.df_completed_plans, "Updated completed training plans")
         
-        # Remove the user's current plan from the active plans
+        # Remove the user's current plan from the active plans and save the updated user plans to Github
         st.session_state.df_user_plans = st.session_state.df_user_plans[st.session_state.df_user_plans['username'] != username]
-        
-        # Save the updated user plans to GitHub
         st.session_state.github.write_df(DATA_FILE_USER_PLANS, st.session_state.df_user_plans, "Updated user training plans")
         
         # Create a new subtab for the completed training plan
         create_completed_training_plan_subtab(user_plans)
         
         st.success("Training plan completed and moved to the Completed Training Plans tab.")
-
-        # Rerun the Streamlit script to reflect changes immediately
         st.experimental_rerun()
     else:
         st.warning("No current training plans available.")
@@ -177,14 +159,11 @@ def create_completed_training_plan_subtab(user_plans):
     end_date = user_plans['date'].max() + timedelta(days=6)
     tab_label = f"{start_date.strftime('%d.%m.%Y')} - {end_date.strftime('%d.%m.%Y')}"
 
-    # Check if the subtab already exists
     existing_subtabs = st.session_state.get('completed_training_plan_subtabs', [])
     for subtab in existing_subtabs:
         if subtab['label'] == tab_label:
-            # If subtab already exists, return
             return
 
-    # If subtab doesn't exist, create a new subtab
     new_subtab = {
         'label': tab_label,
         'user_plans': user_plans
@@ -198,7 +177,6 @@ def completed_training_plans_page():
     completed_plans = completed_plans[completed_plans['username'] == st.session_state['username']]
 
     if not completed_plans.empty:
-        # Display the subtabs only if there are completed training plans available
         display_completed_training_plan_subtabs()
 
     else:
@@ -209,17 +187,14 @@ def display_completed_training_plan_subtabs():
     subtabs = st.session_state.get('completed_training_plan_subtabs', [])
     
     if subtabs:
-        # Create a selectbox to choose the subtab
         selected_subtab_label = st.selectbox("Training Plan:", [subtab['label'] for subtab in subtabs], key="select_training_plan_subtab")
 
-        # Find the selected subtab
         selected_subtab = None
         for subtab in subtabs:
             if subtab['label'] == selected_subtab_label:
                 selected_subtab = subtab
                 break
         
-        # Display the selected subtab
         if selected_subtab:
             user_plans = selected_subtab['user_plans']
             for _, row in user_plans.iterrows():
@@ -242,17 +217,14 @@ def display_completed_training_plan():
     subtabs = st.session_state.get('completed_training_plan_subtabs', [])
 
     if subtabs:
-        # Create a selectbox to choose the subtab
         selected_subtab_label = st.selectbox("Select Training Plan:", [subtab['label'] for subtab in subtabs])
 
-        # Find the selected subtab
         selected_subtab = None
         for subtab in subtabs:
             if subtab['label'] == selected_subtab_label:
                 selected_subtab = subtab
                 break
 
-        # Display the selected subtab
         if selected_subtab:
             user_plans = selected_subtab['user_plans']
             st.write("Completed Training Plans:")
@@ -275,7 +247,6 @@ def main_fitness():
     if 'completed_training_plan_subtabs' not in st.session_state:
         st.session_state['completed_training_plan_subtabs'] = []
 
-    # Check authentication status
     if not st.session_state['authentication']:
         login_page()
     else:
