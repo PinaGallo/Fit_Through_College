@@ -13,7 +13,7 @@ Das Feedback unseres Nutzers in den Testpunkten zusammengefasst lautet wie folgt
 
 **Was war gut?**
 
-Die App ist sehr bedienerfreundlich und überhaupt nicht kompliziert. Man versteht schnell, was man klicken muss und der Aufbau ist einfach. Ausserdem sind die Übungen teils sehr kreativ und nicht die "klassischen", manchmal etwas langweiligen Fitnessübungen, wie man sie auf anderen Plattformen findet. Zudem ist es super, dass die Muskelpartien grob angezeigt werden und die Bilder sind sehr anschaulich. Die App wird sicherlich weiterempfohlen.
+Die App ist sehr bedienerfreundlich und überhaupt nicht kompliziert. Man versteht schnell, was man klicken muss und der Aufbau ist einfach. Ausserdem sind die Übungen teils sehr kreativ und nicht die "klassischen", manchmal etwas langweiligen Fitnessübungen, wie man sie auf anderen Plattformen findet. Zudem ist es super, dass die Muskelpartien grob angezeigt und veranschaulicht werden. Die App wird sicherlich weiterempfohlen.
 
 **Was war schlecht?**
 
