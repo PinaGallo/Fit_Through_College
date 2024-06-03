@@ -1,4 +1,5 @@
 **Roadmap für unsere Fitnessübungen-App:**
+
 *Phase 1: Grundlegende Funktionen*
     1. Dateneingabe und -verwaltung:  
         - Daten für unsere Fitnessübungen als CSV importieren
