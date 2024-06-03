@@ -1,7 +1,7 @@
 
 ## Abschliessender Nutzertest
 
-Die Abgabeversion unserer App ist nun fertig und wir möchten wissen, ob die App wirklich in den Studiumsalltag integriert werden kann und das Sportmachen erleichtert. Von unserem Nutzer möchten Feedback zu folgenden Punkten erhalten:
+Die Abgabeversion unserer App ist nun fertig und wir möchten wissen, ob die App wirklich in den Studiumsalltag integriert werden kann und das Sportmachen erleichtert. Von unserem Nutzer möchten wir Feedback zu folgenden Punkten erhalten:
 
 - Ist die App bedienerfreundlich, wird man gut durch die Funktionen durchgeführt?
 - Sind die darin zusammengestellten Fitnessübungen gut ausführbar?
@@ -13,7 +13,7 @@ Das Feedback unseres Nutzers in den Testpunkten zusammengefasst lautet wie folgt
 
 **Was war gut?**
 
-Die App ist sehr bedienerfreundlich und überhaupt nicht kompliziert. Man versteht schnell, was man klicken muss und der Aufbau ist einfach. Ausserdem sind die Übungen teils sehr kreativ und nicht die "klassischen", manchmal etwas langweiligen Fitnessübungen, wie man sie auf anderen Plattformen findet. Zudem ist es super, dass die Muskelpartien grob angezeigt und veranschaulicht werden. Die App wird sicherlich weiterempfohlen.
+Die App ist sehr bedienerfreundlich und überhaupt nicht kompliziert. Man versteht schnell, was man klicken muss und der Aufbau ist einfach. Ausserdem sind die Übungen teils sehr kreativ und nicht die "typischen", manchmal etwas langweiligen Fitnessübungen, wie man sie auf anderen Plattformen findet. Zudem ist es super, dass die Muskelpartien grob angezeigt und veranschaulicht werden. Die App wird sicherlich weiterempfohlen.
 
 **Was war schlecht?**
 
