@@ -51,8 +51,6 @@ def init_dataframe():
         else:
             st.session_state.df_training_logs = pd.DataFrame(columns=['username', 'start_date', 'end_date', 'training_plan'])
 
-import pandas as pd
-from datetime import timedelta
 
 def create_training_plan(filtered_df, selected_days, start_date):
     """Create a training plan with 5 random exercises for each selected day and save it to GitHub."""
