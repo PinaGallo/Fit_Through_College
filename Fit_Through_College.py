@@ -6,7 +6,6 @@ import bcrypt
 from datetime import timedelta
 import datetime
 
-# Set constants
 DATA_FILE_LOGIN = "MyLoginTable.csv"
 DATA_COLUMNS = ['username', 'name', 'password']
 DATA_FILE_EXERCISE = "exercise_final.csv"
@@ -72,9 +71,6 @@ def create_training_plan(filtered_df, selected_days, start_date):
         })
         training_plan = pd.concat([training_plan, day_plan], ignore_index=True)
         start_date += timedelta(days=1)
-
-    # Display the training plan
-    #st.markdown(f"<h2 style='color: #ff5733;'><b>Training Plan</b></h2>", unsafe_allow_html=True)
 
     # Save the training plan to the user's plan DataFrame
     st.session_state.df_user_plans = pd.concat([st.session_state.df_user_plans, training_plan], ignore_index=True)
@@ -272,7 +268,6 @@ def display_completed_training_plan():
         st.write("No completed training plans available.")
 
 def main_fitness():
-    # Initial setup
     if 'authentication' not in st.session_state:
         st.session_state['authentication'] = False
     if 'username' not in st.session_state:
@@ -347,7 +342,6 @@ def main_fitness():
         with tab3:
             completed_training_plans_page()
 
-        # Logout button
         if st.sidebar.button("Logout", key="logout_button", help="Click here to logout"):
             st.session_state['authentication'] = False
             st.session_state['username'] = ""
@@ -406,7 +400,6 @@ def authenticate(username, password):
         stored_hashed_password = login_df.loc[login_df['username'] == username, 'password'].values[0]
         stored_hashed_password_bytes = binascii.unhexlify(stored_hashed_password) # convert hex to bytes
         
-        # Check the input password
         if bcrypt.checkpw(password.encode('utf8'), stored_hashed_password_bytes): 
             st.session_state['authentication'] = True
             st.success('Login successful')
@@ -436,8 +429,8 @@ def init_credentials():
         st.session_state.df_users = pd.DataFrame(columns=DATA_COLUMNS)
 
 def main():
-    init_github() # Initialize the GithubContents object
-    init_credentials() # Loads the credentials from the Github data repository
+    init_github() 
+    init_credentials() 
 
     if 'authentication' not in st.session_state:
         st.session_state['authentication'] = False
