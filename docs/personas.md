@@ -27,7 +27,7 @@ Das sind meine Ziele: Ausgleich zum kopflastigen Alltag durch Sport erreichen
 
 **Allgemeine Zielgruppe unserer App:**
 
-Zwischen 20 und 40 Jahren, Freude an Bewegung, möchten für ihr Programm im Gym etwas mehr Unterstützung/Ideen und Motivation erhalten. Soll möglichst mit dem Studiumsalltag vereinbar sein, daher nicht zu viel Zeit in Anspruch nehmen.
+Zwischen 20 und 40 Jahren, Freude an Bewegung, möchten für ihr Fitnessprogramm etwas mehr Unterstützung/Ideen und Motivation erhalten. Soll möglichst mit dem Studiumsalltag vereinbar sein, daher nicht zu viel Zeit in Anspruch nehmen.
 
 
 **Aussendstehender Nutzer/ Persona 2:**
