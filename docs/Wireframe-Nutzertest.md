@@ -21,7 +21,7 @@ Abschliessender Kommentar: Coole Idee :)
 - Neue Idee?              - eventuell Videos einbringen, individuell einstellbare Uhrzeiten, ausgebaute Sidebar mit mehr                                   Funktionen oder Zugriff aufs Menü
 - Neue Probleme?          - Videos zu finden und einzufügen, Verbindung der Videos mit den Übungen 
 
-Unsere Bewertung zum Nutzertest:
+**Unsere Bewertung zum Nutzertest:**
 - Ideen versuchen umzusetzen
 - schöner Gestalten 
  
