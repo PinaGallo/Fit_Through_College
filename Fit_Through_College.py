@@ -76,23 +76,6 @@ def create_training_plan(filtered_df, selected_days, start_date):
     # Display the training plan
     #st.markdown(f"<h2 style='color: #ff5733;'><b>Training Plan</b></h2>", unsafe_allow_html=True)
 
-    # for day in selected_days:
-    #     st.markdown(f"<h3>{day}</h3>", unsafe_allow_html=True)
-    #     day_exercises = training_plan[training_plan['day'] == day]
-    #     for _, exercise in day_exercises.iterrows():
-    #         st.markdown(f"<p style='font-size:16px;'><strong>Exercise:</strong> <em>{exercise['exercise_name']}</em></p>", unsafe_allow_html=True)
-    #         st.markdown(f"<p style='font-size:16px;'><strong>Level:</strong> {exercise['level']}</p>", unsafe_allow_html=True)
-    #         st.markdown(f"<p style='font-size:16px;'><strong>Muscles:</strong> {exercise['primaryMuscles']}</p>", unsafe_allow_html=True)
-
-    #         muscles = exercise['primaryMuscles'].split(',')
-    #         for muscle in muscles:
-    #             muscle = muscle.strip()
-    #             if muscle in muscle_images:
-    #                 st.image(muscle_images[muscle], width=100)
-
-    #         st.markdown(f"<p style='font-size:16px;'><strong>Instructions:</strong> {exercise['instructions']}</p>", unsafe_allow_html=True)            
-    #         st.write("")
-
     # Save the training plan to the user's plan DataFrame
     st.session_state.df_user_plans = pd.concat([st.session_state.df_user_plans, training_plan], ignore_index=True)
     
@@ -104,12 +87,12 @@ def create_training_plan(filtered_df, selected_days, start_date):
 
 def save_training_plan_to_logs(user_training_plan):
     """
-    Speichert den gesamten Trainingsplan für den ausgewählten Zeitraum im Training Logs Tab.
+    Saves the entire training plan for the selected period in the Training Logs tab.
     """
     start_date = user_training_plan['date'].min()
     end_date = user_training_plan['date'].max()
     
-    # Erstelle einen Eintrag für den gesamten Trainingszeitraum
+    # Create an entry for the entire training period
     training_logs_entry = {
         'username': st.session_state['username'],
         'start_date': start_date,
@@ -117,10 +100,10 @@ def save_training_plan_to_logs(user_training_plan):
         'training_plan': user_training_plan.to_dict(orient='records')
     }
     
-    # Füge den Eintrag zu den Training Logs hinzu
+    # Add the entry to the training logs
     st.session_state.df_training_logs = st.session_state.df_training_logs.append(training_logs_entry, ignore_index=True)
     
-    # Speichere die aktualisierten Training Logs im GitHub
+    # Save the updated training logs to GitHub
     st.session_state.github.write_df(DATA_FILE_TRAINING_LOGS, st.session_state.df_training_logs, "Updated training logs")
 
 def current_training_plan():
