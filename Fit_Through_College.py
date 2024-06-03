@@ -106,7 +106,7 @@ def current_training_plan():
         
         for _, row in user_plans.iterrows():
             st.markdown(f"<h3>{row['day']}</h3>", unsafe_allow_html=True)
-            st.markdown(f"<p style='font-size:18px;'><strong>Exercise:</strong> {row['exercise_name']}</p>", unsafe_allow_html=True)
+            st.markdown(f"<p style='font-size:18px;'><strong>Exercise:</strong> {row['eercise_name']}</p>", unsafe_allow_html=True)
             st.markdown(f"<p style='font-size:16px;'><strong>Level:</strong> {row['level']}</p>", unsafe_allow_html=True)
             st.markdown(f"<p style='font-size:16px;'><strong>Muscles:</strong> {row['primaryMuscles']}</p>", unsafe_allow_html=True)
             st.markdown(f"<p style='font-size:16px;'><strong>Instructions:</strong> {row['instructions']}</p>", unsafe_allow_html=True)
